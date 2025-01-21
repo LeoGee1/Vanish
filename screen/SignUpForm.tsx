@@ -12,8 +12,11 @@ import {
     Keyboard,
     TouchableWithoutFeedback
 } from 'react-native';
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import * as Yup from 'yup';
+import CustomButton from "@/components/CustomButton";
+import LoadingAnimation from "@/components/LoadingAnimation";
+
 
 const { width, height } = Dimensions.get('screen')
 
@@ -37,15 +40,17 @@ const SignupSchema = Yup.object().shape({
 
 const SignUpForm = () => {
     const [isFocused, setIsFocused] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <ImageBackground
                 source={require('../assets/images/splash.png')}
                 style={styles.container}
+                onLoadEnd={() => setImageLoaded(true)}
             >
 
-                {!isFocused && <Text style={styles.title}>Sign Up</Text>}
+                {/* {!isFocused && <Text style={styles.title}>Sign Up</Text>} */}
                 <Formik
                     initialValues={{
                         firstName: '',
@@ -69,7 +74,7 @@ const SignUpForm = () => {
                         touched,
                         isSubmitting,
                     }) => (
-                        <View>
+                        <View style={{opacity: imageLoaded ? 1 : 0}}>
                             <TextInput
                                 style={styles.input}
                                 placeholder="First Name"
@@ -132,8 +137,9 @@ const SignUpForm = () => {
                                 <Text style={styles.errorText}>{errors.confirmPassword}</Text>
                             )}
 
-                            <Button title="Submit" onPress={() => handleSubmit()} disabled={isSubmitting} />
+                            <CustomButton onPress={() => handleSubmit()} disabled={isSubmitting}>Sign Up</CustomButton>
                         </View>
+                      
                     )}
                 </Formik>
             </ImageBackground>
@@ -166,8 +172,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#F2EAFF57',
     },
     errorText: {
-        color: 'red',
+        color: '#000000',
         marginBottom: 5,
+        
     },
 });
 
