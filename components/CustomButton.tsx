@@ -1,20 +1,29 @@
 import React from "react";
-import { Pressable, View, Text, StyleSheet } from "react-native";
+import { Pressable, View, Text, StyleSheet, ViewStyle } from "react-native";
+import { useState } from "react";
 
 interface PrimaryButtonProps {
     children: React.ReactNode,
-    onPress? : () => void,
+    onPress?: () => void,
+    style?: ViewStyle | ViewStyle[],
     disabled?: boolean
 }
 
-const CustomButton: React.FC<PrimaryButtonProps> = ({onPress, disabled = false, children}) => {
+const CustomButton: React.FC<PrimaryButtonProps> = ({ onPress, children, style, disabled }) => {
+
     return (
-        <View style= {styles.outerContainer}>
+        <View style={[styles.outerContainer, ...(Array.isArray(style) ? style : [style])]}>
             <Pressable
-                style = {({ pressed }) => [
-                    styles.innerContainer, pressed && styles.pressed
+                onPress={onPress}
+                disabled={disabled}
+                style={({ pressed }) => [
+                    styles.innerContainer,
+                    style,
+                    pressed && styles.pressed,
+                    pressed && styles.pressedBackground,
+                    ...(Array.isArray(style) ? style : [style])
                 ]}
-                android_ripple={{color: 'white'}}
+                android_ripple={{ color: 'white' }}
             >
                 <Text style={styles.buttonText}>{children}</Text>
             </Pressable>
@@ -27,10 +36,11 @@ const styles = StyleSheet.create({
     outerContainer: {
         overflow: 'hidden',
         margin: 10,
-        borderRadius: 20
+        borderRadius: 20,
+        borderColor: '#00000018',
     },
-    innerContainer : {
-        backgroundColor: '#E9DB1A8C',
+    innerContainer: {
+        backgroundColor: '#DBB818EE',
         paddingHorizontal: 14,
         paddingVertical: 8,
         elevation: 5
@@ -40,9 +50,11 @@ const styles = StyleSheet.create({
         color: 'black',
         textAlign: 'center',
         fontFamily: 'ManropeBold'
-        
     },
     pressed: {
         opacity: 0.75
-    } 
+    },
+    pressedBackground: {
+        backgroundColor: '#C9A918EE'
+    }
 })
