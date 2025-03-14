@@ -2,13 +2,13 @@ import React from 'react';
 import { Button, View } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
-import { initializeAuth, signInWithCredential } from 'firebase/auth';
+import { signInWithCredential } from 'firebase/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { useRouter } from 'expo-router';
 
 WebBrowser.maybeCompleteAuthSession();
-const redirectUri = "https://auth.expo.io/@leogee/vanish";
+// const redirectUri = "https://auth.expo.io/@leogee/vanish";
 
 
 const GoogleSignInButton = () => {
@@ -19,7 +19,7 @@ const GoogleSignInButton = () => {
   const [request, response, promptAsync] = Google.useAuthRequest({
     clientId: '997210725348-tdj10johhiu1bo97guoi8s02cse2vs1h.apps.googleusercontent.com',
     // iosClientId: "997210725348-9pkdn3mpjuvui610k0ta67s2f2p6p66o.apps.googleusercontent.com",
-    androidClientId: "997210725348-7jpueasom2bh7399md41pmsf9sj5c24i.apps.googleusercontent.com",
+    // androidClientId: "997210725348-7jpueasom2bh7399md41pmsf9sj5c24i.apps.googleusercontent.com",
     scopes: ['profile', 'email', 'https://www.googleapis.com/auth/drive.file'],
     redirectUri
   });

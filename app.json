@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Vanish",
-    "slug": "vanish",
+    "slug": "Vanish",
     "owner": "leogee",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     "ios": {
       "supportsTablet": true,
       "googleServicesFile": "./GoogleService-Info.plist",
-      "bundleIdentifier": "come.codeordont.vanish"
+      "bundleIdentifier": "com.codeordont.vanish"
     },
     "android": {
       "adaptiveIcon": {

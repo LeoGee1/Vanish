@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "997210725348-u9b41p78r200h2mmedrbsc2mea0f25hn.apps.googleusercontent.com",
+          "client_id": "997210725348-129msljnelsp3nq50f48onqfq822hi1d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.codeordont.vanish",
@@ -35,14 +35,14 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "997210725348-afl5df77i40sjfikdhci3cnu80jnffei.apps.googleusercontent.com",
+              "client_id": "997210725348-tdj10johhiu1bo97guoi8s02cse2vs1h.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "997210725348-9pkdn3mpjuvui610k0ta67s2f2p6p66o.apps.googleusercontent.com",
+              "client_id": "997210725348-4g7mbjetdcgr0j6fg91cngqe1rp2qhal.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "come.codeordont.vanish"
+                "bundle_id": "com.codeordont.vanish"
               }
             }
           ]
